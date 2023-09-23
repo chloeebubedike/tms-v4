@@ -28,31 +28,26 @@ const SideBar = () => {
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
             backgroundColor: colors.primary[500],
-            color: colors.white[500],
           },
         }}
       >
         <Menu
           menuItemStyles={{
-            button: ({ active }) => {
-              if (active) {
-                return {
-                  backgroundColor: "red",
-                };
-              }
+            button: () => {
+              return {
+                color: colors.white[500],
+                "&:hover": {
+                  color: "black !important",
+                },
+              };
             },
           }}
         >
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={
-              isCollapsed ? (
-                <MenuOutlinedIcon sx={{ color: colors.white[500] }} />
-              ) : undefined
-            }
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.primary[500],
             }}
           >
             {!isCollapsed && (
@@ -62,28 +57,26 @@ const SideBar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h6" color={colors.primary[100]}>
-                  The Money System
-                </Typography>
+                <Typography variant="h6">My Money System</Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon sx={{ color: colors.white[500] }} />
+                  <MenuOutlinedIcon />
                 </IconButton>
               </Box>
             )}
             {!isCollapsed && (
               <Box>
                 <Box>
-                  <img
+                  {/* <img
                     alt="logo"
                     width="100px"
                     height="100px"
                     src="./../../src/assets/holding_plant.png"
-                  />
+                  /> */}
                 </Box>
-                <Divider sx={{ backgroundColor: colors.white[500] }} />
               </Box>
             )}
           </MenuItem>
+          <Divider sx={{ backgroundColor: colors.white[500] }} />
           <MenuItem component={<Link to="/" />} icon={<HomeOutlinedIcon />}>
             Dashboard
           </MenuItem>
