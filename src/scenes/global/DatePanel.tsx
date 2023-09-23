@@ -1,7 +1,7 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Box, styled, Typography } from "@mui/material";
+import { Box, styled } from "@mui/material";
+import { MonthPicker } from "../../components/MonthPicker";
 
 type DatePanelProps = {
   pageName: "Dashboard" | "Goals" | "Spending Plan" | "Track";
@@ -39,7 +39,7 @@ const PageNameTypography = styled(Box)(() => ({
   letterSpacing: 2.75,
 }));
 
-const ArrowNavigationContainer = styled(Box)(() => ({
+const NavigationContainer = styled(Box)(() => ({
   display: "flex",
   flexDirection: "row",
   gap: "25px",
@@ -76,14 +76,14 @@ export const DatePanel = ({ pageName }: DatePanelProps) => {
       <TextContainer>
         <DateContainer>
           <DateTypography>{formattedDate}</DateTypography>
-          <ExpandMoreIcon />
         </DateContainer>
         <PageNameTypography>{pageName}</PageNameTypography>
       </TextContainer>
-      <ArrowNavigationContainer>
-        <ArrowBackIcon />
-        <ArrowForwardIcon />
-      </ArrowNavigationContainer>
+      <NavigationContainer>
+        <MonthPicker />
+        <ArrowBackIcon fontSize="large" />
+        <ArrowForwardIcon fontSize="large" />
+      </NavigationContainer>
     </Container>
   );
 };
