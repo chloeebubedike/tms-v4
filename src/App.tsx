@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import Topbar from "./scenes/global/Topbar";
+import { useMode } from "./theme";
+import SideBar from "./scenes/global/Sidebar";
+import { Route, Routes } from "react-router-dom";
+import DashboardPage from "./scenes/dashboard";
+import GoalsPage from "./scenes/goals";
+import TrackPage from "./scenes/track";
+import ForecastPage from "./scenes/forecast";
 
 function App() {
+  const [theme] = useMode();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="app">
+        <SideBar />
+        <main className="content">
+          <Topbar />
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/goals" element={<GoalsPage />} />
+            <Route path="/track" element={<TrackPage />} />
+            <Route path="/forecast" element={<ForecastPage />} />
+          </Routes>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 
