@@ -63,18 +63,19 @@ const SideBar = () => {
                 </IconButton>
               </Box>
             )}
-            {!isCollapsed && (
+            {/* {!isCollapsed && (
               <Box>
                 <Box>
-                  {/* <img
-                    alt="logo"
+                  <img
+                    alt="tms-logo"
                     width="100px"
                     height="100px"
-                    src="./../../src/assets/holding_plant.png"
-                  /> */}
+                    src={`https://www.w3schools.com/images/picture.jpg`}
+                    style={{ cursor: "pointer" }}
+                  />
                 </Box>
               </Box>
-            )}
+            )} */}
           </MenuItem>
           <Divider sx={{ backgroundColor: colors.white[500] }} />
           <MenuItem component={<Link to="/" />} icon={<HomeOutlinedIcon />}>
