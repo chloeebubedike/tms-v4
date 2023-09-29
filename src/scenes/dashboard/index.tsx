@@ -1,8 +1,9 @@
 import React from "react";
 import { DatePanel } from "../global/DatePanel";
 import { PieChart } from "@mui/x-charts/PieChart";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { tokens } from "../../theme";
+import { SummaryPanel } from "../../components/SummaryPanel";
 
 const DashboardPage = () => {
   const colors = tokens();
@@ -17,6 +18,12 @@ const DashboardPage = () => {
           marginRight: "20px",
         }}
       />
+      <Box
+        sx={{ display: "flex", justifyContent: "center", marginTop: "42px" }}
+      >
+        <SummaryPanel />
+      </Box>
+
       <PieChart
         series={[
           {
